@@ -76,7 +76,7 @@ class RoomsController < ApplicationController
     end
 
     def is_ready_room
-      !@room.active && !@room.price.blank? && !@room.listing_name.blank? #&& !@room.photos.blank? && !@room.address.blank?
+      !@room.active && !@room.price.blank? && !@room.listing_name.blank? && !@room.photos.blank? && !@room.address.blank?
     end
 
     def room_params
