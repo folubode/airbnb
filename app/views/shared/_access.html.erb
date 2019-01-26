@@ -1,0 +1,39 @@
+<ul class="nav navbar-nav navbar-right">
+	<% if (!user_signed_in?) %>
+    <li><%= link_to "Sign Up", new_user_registration_path %></li>
+    <li><%= link_to "Sign In", new_user_session_path %></li>
+	<%else%>
+  <li class="dropdown">
+    <a href="#" class="dropdown-toggle" 
+    		data-toggle="dropdown" 
+    		role="button" aria-haspopup="true" 
+    		aria-expanded="false">
+        <% if (user_signed_in?) %>
+    		  <%= image_tag avatar_url(current_user), class: "img-circle avatar-small" %>&nbsp;
+          <%= current_user.fullname %>
+          
+        <% end %>
+        <span class="caret"></span>
+    </a>
+    <ul class="dropdown-menu">
+    	<li><a href="#">Manage Listings</a></li>
+      <li><a href="#">List Your ...</a></li>
+      <li><a href="#">Your Reservation</a></li>
+      <li><a href="#">Your Trips</a></li>
+      <li role="separator" class="divider"></li>
+      <li class="dropdown-header">Profile</li>
+      <li>
+      	<%= link_to 'Update Profile', edit_user_registration_path %>
+      </li>
+      <li>
+      	<%= link_to 'Log Out', destroy_user_session_path, method: :delete %>
+      </li>              
+    </ul>
+  </li>
+  <%end%>
+</ul>
+<!-- <ul class="nav navbar-nav navbar-right">
+  <li><a href="../navbar/">Default</a></li>
+  <li class="active"><a href="./">Static top <span class="sr-only">(current)</span></a></li>
+  <li><a href="../navbar-fixed-top/">Fixed top</a></li>
+</ul> -->
