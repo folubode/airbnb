@@ -24311,3 +24311,367 @@ Processing by PhotosController#destroy as JS
 Completed 200 OK in 46ms (Views: 29.6ms | ActiveRecord: 3.4ms)
 
 
+Started GET "/rooms/1/photo_upload" for 127.0.0.1 at 2019-01-27 00:15:08 +1300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  Rendered rooms/_room_menu.html.erb (58.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (492.0ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (598.8ms)
+  Rendered shared/_access.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (24.0ms)
+  Rendered shared/_message.html.erb (0.7ms)
+Completed 200 OK in 2322ms (Views: 2162.4ms | ActiveRecord: 3.8ms)
+
+
+Started DELETE "/rooms/1/photos/6" for 127.0.0.1 at 2019-01-27 00:15:18 +1300
+Processing by PhotosController#destroy as JS
+  Parameters: {"room_id"=>"1", "id"=>"6"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (85.4ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = ?[0m  [["id", 6]]
+  [1m[35m (100.1ms)[0m  [1m[36mcommit transaction[0m
+  Rendering photos/destroy.js.erb
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (8.0ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/destroy.js.erb (13.8ms)
+Completed 200 OK in 3251ms (Views: 35.4ms | ActiveRecord: 186.8ms)
+
+
+Started DELETE "/rooms/1/photos/7" for 127.0.0.1 at 2019-01-27 00:15:21 +1300
+Processing by PhotosController#destroy as JS
+  Parameters: {"room_id"=>"1", "id"=>"7"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = ?[0m  [["id", 7]]
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+  Rendering photos/destroy.js.erb
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (3.6ms)
+  [1m[36mCACHE Photo Load (0.0ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/destroy.js.erb (8.1ms)
+Completed 200 OK in 1859ms (Views: 23.5ms | ActiveRecord: 3.8ms)
+
+
+Started DELETE "/rooms/1/photos/8" for 127.0.0.1 at 2019-01-27 00:15:24 +1300
+Processing by PhotosController#destroy as JS
+  Parameters: {"room_id"=>"1", "id"=>"8"}
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.4ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = ?[0m  [["id", 8]]
+  [1m[35m (1.3ms)[0m  [1m[36mcommit transaction[0m
+  Rendering photos/destroy.js.erb
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (5.7ms)
+  [1m[36mCACHE Photo Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/destroy.js.erb (12.7ms)
+Completed 200 OK in 2112ms (Views: 30.5ms | ActiveRecord: 3.4ms)
+
+
+Started DELETE "/rooms/1/photos/8" for 127.0.0.1 at 2019-01-27 00:15:27 +1300
+Processing by PhotosController#destroy as JS
+  Parameters: {"room_id"=>"1", "id"=>"8"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Photo with 'id'=8):
+  
+app/controllers/photos_controller.rb:17:in `destroy'
+Started DELETE "/rooms/1/photos/9" for 127.0.0.1 at 2019-01-27 00:15:29 +1300
+Processing by PhotosController#destroy as JS
+  Parameters: {"room_id"=>"1", "id"=>"9"}
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT  "photos".* FROM "photos" WHERE "photos"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  [1m[36mRoom Load (0.1ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[31mDELETE FROM "photos" WHERE "photos"."id" = ?[0m  [["id", 9]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  Rendering photos/destroy.js.erb
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (2.9ms)
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/destroy.js.erb (9.7ms)
+Completed 200 OK in 3833ms (Views: 30.1ms | ActiveRecord: 3.3ms)
+
+
+Started POST "/rooms/1/photos" for 127.0.0.1 at 2019-01-27 00:15:48 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fkw1k85fKrVEjZZ+hfWp2N2YvIw+RUPqhbSWFWEPCxYCik6Jp660s9UDBHm9dbJRpfcw+0kt8QJzukP56XRFQg==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdfb5758900 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-35860-1a9158o.jpg>, @original_filename="bg-2.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"bg-2.jpg\"\r\nContent-Type: image/jpeg\r\n">], "commit"=>"Add Photos", "room_id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-35860-1a9158o.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-q85is6.jpg
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f9220fd58f01c3ab00a11a37bacfd97820190127-35860-je3ujb'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f9220fd58f01c3ab00a11a37bacfd97820190127-35860-je3ujb to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/90fc1c026fb68741184db6ad2200c86320190127-35860-jte67u
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f9220fd58f01c3ab00a11a37bacfd97820190127-35860-kryey1'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f9220fd58f01c3ab00a11a37bacfd97820190127-35860-kryey1 to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/9b0bd76b5468a1777177c588efe222e620190127-35860-13cadp9
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-j0k33r.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/57b52e4192ce0f3ca1c71f63a2493ff020190127-35860-ehbrhd.jpg
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:15:49.458626"], ["updated_at", "2019-01-26 11:15:49.458626"], ["image_file_name", "bg-2.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 68156], ["image_updated_at", "2019-01-26 11:15:48.158273"]]
+[paperclip] saving photos/images/10/original/bg-2.jpg
+  [1m[35m (0.5ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 3102ms (ActiveRecord: 1.5ms)
+
+
+  
+Aws::S3::Errors::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided. Check your key and signing method.):
+  
+app/controllers/photos_controller.rb:8:in `block in create'
+app/controllers/photos_controller.rb:7:in `each'
+app/controllers/photos_controller.rb:7:in `create'
+Started GET "/rooms/1/photo_upload" for 127.0.0.1 at 2019-01-27 00:17:35 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  Rendered rooms/_room_menu.html.erb (2.5ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (1.8ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (10.8ms)
+  Rendered shared/_access.html.erb (1.7ms)
+  Rendered shared/_navbar.html.erb (6.8ms)
+  Rendered shared/_message.html.erb (0.9ms)
+Completed 200 OK in 122ms (Views: 115.5ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/rooms/1/photos" for 127.0.0.1 at 2019-01-27 00:17:41 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WquZdu1LZ4hvRfvjWjXTqzZKIfayb5mGRRcpWLNQGiZObeJshLr5jv7LaeRitcgiTiWtgcUHK26zGfy0OytUcg==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdfb4fca940 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-35860-8jh334.png>, @original_filename="730x730.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"730x730.png\"\r\nContent-Type: image/png\r\n">], "commit"=>"Add Photos", "room_id"=>"1"}
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-35860-8jh334.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-6xml5z.png
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/858c33022e384dbf21f326fe0cf9de3720190127-35860-97y32'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/858c33022e384dbf21f326fe0cf9de3720190127-35860-97y32 to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4e77464c0d546b0fbf0ebcf4d2aa45de20190127-35860-1w66tou
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/858c33022e384dbf21f326fe0cf9de3720190127-35860-wk44ye'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/858c33022e384dbf21f326fe0cf9de3720190127-35860-wk44ye to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/a3441c326400edcd326dd4f2a7b34f4320190127-35860-geb87v
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-1w4rtls.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-k265pn.png
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:17:41.422794"], ["updated_at", "2019-01-26 11:17:41.422794"], ["image_file_name", "730x730.png"], ["image_content_type", "image/png"], ["image_file_size", 18154], ["image_updated_at", "2019-01-26 11:17:41.012301"]]
+[paperclip] saving photos/images/10/original/730x730.png
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 1394ms (ActiveRecord: 2.1ms)
+
+
+  
+Aws::S3::Errors::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided. Check your key and signing method.):
+  
+app/controllers/photos_controller.rb:8:in `block in create'
+app/controllers/photos_controller.rb:7:in `each'
+app/controllers/photos_controller.rb:7:in `create'
+Started POST "/rooms/1/photos" for 127.0.0.1 at 2019-01-27 00:19:59 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"WquZdu1LZ4hvRfvjWjXTqzZKIfayb5mGRRcpWLNQGiZObeJshLr5jv7LaeRitcgiTiWtgcUHK26zGfy0OytUcg==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x00007fdfb447f838 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-35860-kv4eqt.png>, @original_filename="730x730.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"730x730.png\"\r\nContent-Type: image/png\r\n">], "commit"=>"Add Photos", "room_id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-35860-kv4eqt.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-12jbd0x.png
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4b1975b034ccb25c626600b7c94c00bf20190127-35860-1tj6lrt'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4b1975b034ccb25c626600b7c94c00bf20190127-35860-1tj6lrt to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/66c6203d0fd0feb5b9ef1f5e7d16f09920190127-35860-ct64un
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4b1975b034ccb25c626600b7c94c00bf20190127-35860-482bjk'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4b1975b034ccb25c626600b7c94c00bf20190127-35860-482bjk to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/064fe8906076a2fa3504ea0697dcff0820190127-35860-1c5bbjc
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-ks2rx.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/68e292d34e56a53bb1604d9d800f710720190127-35860-4x9xon.png
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:19:59.894811"], ["updated_at", "2019-01-26 11:19:59.894811"], ["image_file_name", "730x730.png"], ["image_content_type", "image/png"], ["image_file_size", 18154], ["image_updated_at", "2019-01-26 11:19:59.639506"]]
+[paperclip] saving photos/images/10/original/730x730.png
+  [1m[35m (0.7ms)[0m  [1m[31mrollback transaction[0m
+Completed 500 Internal Server Error in 663ms (ActiveRecord: 1.6ms)
+
+
+  
+Aws::S3::Errors::SignatureDoesNotMatch (The request signature we calculated does not match the signature you provided. Check your key and signing method.):
+  
+app/controllers/photos_controller.rb:8:in `block in create'
+app/controllers/photos_controller.rb:7:in `each'
+app/controllers/photos_controller.rb:7:in `create'
+Started GET "/rooms/1/photo_upload" for 127.0.0.1 at 2019-01-27 00:20:06 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  Rendered rooms/_room_menu.html.erb (2.8ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (1.8ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (11.6ms)
+  Rendered shared/_access.html.erb (2.1ms)
+  Rendered shared/_navbar.html.erb (7.7ms)
+  Rendered shared/_message.html.erb (1.1ms)
+Completed 200 OK in 124ms (Views: 117.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/rooms/1/photo_upload" for 127.0.0.1 at 2019-01-27 00:20:33 +1300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  Rendered rooms/_room_menu.html.erb (9.3ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (10.1ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (27.8ms)
+  Rendered shared/_access.html.erb (1.7ms)
+  Rendered shared/_navbar.html.erb (7.0ms)
+  Rendered shared/_message.html.erb (0.9ms)
+Completed 200 OK in 727ms (Views: 620.4ms | ActiveRecord: 2.8ms)
+
+
+Started POST "/rooms/1/photos" for 127.0.0.1 at 2019-01-27 00:20:42 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Ba1630ztDKfDho4TbE7UikN64tMZn0l6JO0jQTwPyj8RawHFJRySoVIIHBRUzs8DOxVupG73+5LS4/attHSEaw==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x00007ff557d25df8 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-hqp868.png>, @original_filename="555x370.png", @content_type="image/png", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"555x370.png\"\r\nContent-Type: image/png\r\n">], "commit"=>"Add Photos", "room_id"=>"1"}
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-hqp868.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1bp90w0.png
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/1264ca372a7daaddeca6dae2e4f37fcd20190127-36028-1buud2z'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/1264ca372a7daaddeca6dae2e4f37fcd20190127-36028-1buud2z to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/997fd29810d78c7701c00c34714ce45f20190127-36028-187znff
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/1264ca372a7daaddeca6dae2e4f37fcd20190127-36028-1rgtxto'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/1264ca372a7daaddeca6dae2e4f37fcd20190127-36028-1rgtxto to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/92d140bc69ea1037fc0b0b26bf5a3d8f20190127-36028-1lncmqb
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-1kzd36g.png to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/5b7532b229510a53e1771380d687ffac20190127-36028-own9zl.png
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:20:42.777830"], ["updated_at", "2019-01-26 11:20:42.777830"], ["image_file_name", "555x370.png"], ["image_content_type", "image/png"], ["image_file_size", 10836], ["image_updated_at", "2019-01-26 11:20:42.580944"]]
+[paperclip] saving photos/images/10/original/555x370.png
+[paperclip] saving photos/images/10/medium/555x370.png
+[paperclip] saving photos/images/10/thumb/555x370.png
+  [1m[35m (2.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/rooms/1/photo_upload
+Completed 302 Found in 1386ms (ActiveRecord: 3.9ms)
+
+
+Started GET "/rooms/1/photo_upload" for 127.0.0.1 at 2019-01-27 00:20:43 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  Rendered rooms/_room_menu.html.erb (3.0ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (6.2ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (19.1ms)
+  Rendered shared/_access.html.erb (1.8ms)
+  Rendered shared/_navbar.html.erb (7.1ms)
+  Rendered shared/_message.html.erb (1.3ms)
+Completed 200 OK in 121ms (Views: 112.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/rooms/1/photos" for 127.0.0.1 at 2019-01-27 00:21:03 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uqDiI3AHIAJStV19B7O3ZwvsiXfR2slKNRyL3XEPmcSuZpk5Gfa+BMM7z3o/M6zuc4MFAKaye6LDEl4x+XTXkA==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x00007ff55e2ee770 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-ebfhwl.jpg>, @original_filename="bg-3.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"bg-3.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007ff55e2ee720 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-17boh1z.jpg>, @original_filename="bg-4.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"bg-4.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007ff55e2ee6d0 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-jhx45d.jpg>, @original_filename="bg-5.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"bg-5.jpg\"\r\nContent-Type: image/jpeg\r\n">, #<ActionDispatch::Http::UploadedFile:0x00007ff55e2ee680 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-1qb7csc.jpg>, @original_filename="bg-7.jpg", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"bg-7.jpg\"\r\nContent-Type: image/jpeg\r\n">], "commit"=>"Add Photos", "room_id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-ebfhwl.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-95709g.jpg
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/cf98c6c958994c9ca7c8479b8ba5c85120190127-36028-1sj482v'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/cf98c6c958994c9ca7c8479b8ba5c85120190127-36028-1sj482v to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35f1affa2b2dccdc62a510fac48490de20190127-36028-1n27zg8
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/cf98c6c958994c9ca7c8479b8ba5c85120190127-36028-1wggudk'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/cf98c6c958994c9ca7c8479b8ba5c85120190127-36028-1wggudk to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/e8e593649642f92eebd07b2d1df1798520190127-36028-1icu1yd
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-263rdn.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/35822f32270ef17ec23cd73ee31ce39820190127-36028-1145bol.jpg
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:21:03.574152"], ["updated_at", "2019-01-26 11:21:03.574152"], ["image_file_name", "bg-3.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 205093], ["image_updated_at", "2019-01-26 11:21:03.160900"]]
+[paperclip] saving photos/images/11/original/bg-3.jpg
+[paperclip] saving photos/images/11/medium/bg-3.jpg
+[paperclip] saving photos/images/11/thumb/bg-3.jpg
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-17boh1z.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-13endye.jpg
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/e4c64841f0026d2c9022d5ec2bde293b20190127-36028-9dra9e'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/e4c64841f0026d2c9022d5ec2bde293b20190127-36028-9dra9e to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/ab9df72828a6f9729759dd78f40917fb20190127-36028-873c1i
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/e4c64841f0026d2c9022d5ec2bde293b20190127-36028-13fzub5'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/e4c64841f0026d2c9022d5ec2bde293b20190127-36028-13fzub5 to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/cf102d7c28b2c6b3c2e4d02f8749638420190127-36028-e7bj5x
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-mjll5h.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f28229c59e9944637216473f64aa22e420190127-36028-1dbk78v.jpg
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:21:06.950599"], ["updated_at", "2019-01-26 11:21:06.950599"], ["image_file_name", "bg-4.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 121660], ["image_updated_at", "2019-01-26 11:21:06.588241"]]
+[paperclip] saving photos/images/12/original/bg-4.jpg
+[paperclip] saving photos/images/12/medium/bg-4.jpg
+[paperclip] saving photos/images/12/thumb/bg-4.jpg
+  [1m[35m (2.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-jhx45d.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1gu74jh.jpg
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/2b890d5523a4e6930f54441aeb0395f020190127-36028-13rwusq'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/2b890d5523a4e6930f54441aeb0395f020190127-36028-13rwusq to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/d2ad12350093aeee7e33ad36be5b83a420190127-36028-1o9y6kt
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/2b890d5523a4e6930f54441aeb0395f020190127-36028-1s44ztl'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/2b890d5523a4e6930f54441aeb0395f020190127-36028-1s44ztl to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/2194c3d456c57c26fc662f4af4e0f16720190127-36028-1yskc0k
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1sfa2un.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8a39a408e48c87f43af66ba7a8786a4a20190127-36028-1qad190.jpg
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:21:08.791439"], ["updated_at", "2019-01-26 11:21:08.791439"], ["image_file_name", "bg-5.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 55693], ["image_updated_at", "2019-01-26 11:21:08.228388"]]
+[paperclip] saving photos/images/13/original/bg-5.jpg
+[paperclip] saving photos/images/13/medium/bg-5.jpg
+[paperclip] saving photos/images/13/thumb/bg-5.jpg
+  [1m[35m (1.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190127-36028-1qb7csc.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1e58y2c.jpg
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f06ed26e0fb004f135fb311acdf0636620190127-36028-1fbqolu'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f06ed26e0fb004f135fb311acdf0636620190127-36028-1fbqolu to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f7fc98e7395f651666249928d333d70320190127-36028-lgxntz
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f06ed26e0fb004f135fb311acdf0636620190127-36028-k69uzp'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/f06ed26e0fb004f135fb311acdf0636620190127-36028-k69uzp to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/0c2601421544fb5b8969c3fbeedf361220190127-36028-19m6x0h
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-1o3ehdr.jpg to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/4cb792f620e560dd59787869f1e1045320190127-36028-h1tnr0.jpg
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 1], ["created_at", "2019-01-26 11:21:09.902424"], ["updated_at", "2019-01-26 11:21:09.902424"], ["image_file_name", "bg-7.jpg"], ["image_content_type", "image/jpeg"], ["image_file_size", 54268], ["image_updated_at", "2019-01-26 11:21:09.667014"]]
+[paperclip] saving photos/images/14/original/bg-7.jpg
+[paperclip] saving photos/images/14/medium/bg-7.jpg
+[paperclip] saving photos/images/14/thumb/bg-7.jpg
+  [1m[35m (6.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/rooms/1/photo_upload
+Completed 302 Found in 7565ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/rooms/1/photo_upload" for 127.0.0.1 at 2019-01-27 00:21:10 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  Rendered rooms/_room_menu.html.erb (3.2ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  Rendered photos/_photos_list.html.erb (7.5ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (17.6ms)
+  Rendered shared/_access.html.erb (1.7ms)
+  Rendered shared/_navbar.html.erb (5.4ms)
+  Rendered shared/_message.html.erb (0.8ms)
+Completed 200 OK in 129ms (Views: 120.1ms | ActiveRecord: 1.5ms)
+
+

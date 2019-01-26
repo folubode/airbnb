@@ -65,4 +65,18 @@ Rails.application.configure do
 
   }
 
+   config.paperclip_defaults = {
+    storage: :s3,
+    path: ':class/:attachment/:id/:style/:filename',
+    s3_host_name: 's3-ap-southeast-2.amazonaws.com',
+    s3_credentials: {
+      bucket: 'olucube-airbnb',
+      access_key_id: 'AKIAJGAV3BNMS5EKEBOQ',
+      secret_access_key: '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',
+      s3_region: 'ap-southeast-2'
+    }
+  }
+
+  
+
 end

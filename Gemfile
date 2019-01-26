@@ -83,3 +83,5 @@ gem 'localstorageshim-rails', '~> 1.0', '>= 1.0.2'
 #Easy image upload management for ActiveRecord
 gem 'paperclip', '~> 6.1'
 
+#The official AWS SDK for Ruby. Provides both resource oriented interfaces and API clients for AWS services.
+gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
