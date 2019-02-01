@@ -49,8 +49,10 @@ class RoomsController < ApplicationController
 
   def update
 
+    #double checking in the server side
     new_params = room_params
     new_params = room_params.merge(active: true) if is_ready_room
+    #
 
     if @room.update(new_params)
       flash[:notice] = "Saved..."
