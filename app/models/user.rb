@@ -1,6 +1,7 @@
 class User < ApplicationRecord
   
   has_many :rooms
+  has_many :reservations
 
 
 	# Include default devise modules and remember to add field to user table:

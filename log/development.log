@@ -34640,3 +34640,1223 @@ Processing by RoomsController#show as HTML
 Completed 200 OK in 119ms (Views: 111.4ms | ActiveRecord: 2.7ms)
 
 
+Started GET "/" for 127.0.0.1 at 2019-02-02 04:05:42 +1300
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.6ms)
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (119.0ms)
+  Rendered shared/_navbar.html.erb (370.7ms)
+  Rendered shared/_message.html.erb (0.7ms)
+Completed 200 OK in 1673ms (Views: 1573.2ms | ActiveRecord: 3.6ms)
+
+
+Started GET "/rooms/" for 127.0.0.1 at 2019-02-02 04:05:52 +1300
+Processing by RoomsController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/index.html.erb within layouts/application
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT "rooms".* FROM "rooms" WHERE "rooms"."user_id" = ?[0m  [["user_id", 11]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  [1m[36mPhoto Load (0.1ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/index.html.erb within layouts/application (366.2ms)
+  Rendered shared/_access.html.erb (1.8ms)
+  Rendered shared/_navbar.html.erb (6.2ms)
+  Rendered shared/_message.html.erb (1.0ms)
+Completed 200 OK in 516ms (Views: 460.1ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/rooms/3/listing" for 127.0.0.1 at 2019-02-02 04:06:02 +1300
+Processing by RoomsController#listing as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/listing.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (69.6ms)
+  Rendered rooms/listing.html.erb within layouts/application (87.9ms)
+  Rendered shared/_access.html.erb (1.7ms)
+  Rendered shared/_navbar.html.erb (6.0ms)
+  Rendered shared/_message.html.erb (1.1ms)
+Completed 200 OK in 207ms (Views: 182.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rooms/3/photo_upload" for 127.0.0.1 at 2019-02-02 04:06:05 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (4.2ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered photos/_photos_list.html.erb (3.4ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (25.2ms)
+  Rendered shared/_access.html.erb (1.7ms)
+  Rendered shared/_navbar.html.erb (6.1ms)
+  Rendered shared/_message.html.erb (1.0ms)
+Completed 200 OK in 142ms (Views: 114.4ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/rooms/3/photos" for 127.0.0.1 at 2019-02-02 04:06:07 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"gEGMYZIPWdDWQiVYc/IfPTjjFNtTykOwUfCQQywPnexlb0OGspZAlS+bZrJ4qlo+/llzKoQnoI6aGlWvTkU6HQ==", "commit"=>"Add Photos", "room_id"=>"3"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+No template found for PhotosController#create, rendering head :no_content
+Completed 204 No Content in 227ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/rooms/3/photo_upload" for 127.0.0.1 at 2019-02-02 04:07:12 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (4.0ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered photos/_photos_list.html.erb (2.5ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (12.5ms)
+  Rendered shared/_access.html.erb (1.5ms)
+  Rendered shared/_navbar.html.erb (5.7ms)
+  Rendered shared/_message.html.erb (0.9ms)
+Completed 200 OK in 292ms (Views: 285.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/rooms/3/photos" for 127.0.0.1 at 2019-02-02 04:07:19 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"1Tn85dCngoGIbLWd+BDWk+YRCBTTt1iO9VoVGKMQiugwFzMC8D6bxHG19nfzSJOQIKtv5QRau7A+sND0wVotGQ==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x007fddd244fa40 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-6hk43e.JPG>, @original_filename="DSCF1646.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"DSCF1646.JPG\"\r\nContent-Type: image/jpeg\r\n">], "commit"=>"Add Photos", "room_id"=>"3"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-6hk43e.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-1chjqn7.JPG
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/ad8d888f1c90d59eea5f50815dea7f7020190202-12882-zahw6q'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/ad8d888f1c90d59eea5f50815dea7f7020190202-12882-zahw6q to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/55247c50c845257bef4e2a6f656efd4720190202-12882-1njp2f7
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/ad8d888f1c90d59eea5f50815dea7f7020190202-12882-1gzh8fq'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/ad8d888f1c90d59eea5f50815dea7f7020190202-12882-1gzh8fq to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/ced11c29866ee69ad3f98a02be9f271920190202-12882-1pax746
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-ubbqxh.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/24d32ceb017bcb0e53fc4af2b8d6496520190202-12882-2d3sel.JPG
+  [1m[35mSQL (0.8ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 3], ["created_at", "2019-02-01 15:07:21.653385"], ["updated_at", "2019-02-01 15:07:21.653385"], ["image_file_name", "DSCF1646.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 1523610], ["image_updated_at", "2019-02-01 15:07:19.995966"]]
+[paperclip] saving photos/images/34/original/DSCF1646.JPG
+[paperclip] saving photos/images/34/medium/DSCF1646.JPG
+[paperclip] saving photos/images/34/thumb/DSCF1646.JPG
+  [1m[35m (6.3ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/rooms/3/photo_upload
+Completed 302 Found in 17592ms (ActiveRecord: 7.5ms)
+
+
+Started GET "/rooms/3/photo_upload" for 127.0.0.1 at 2019-02-02 04:07:37 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (5.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered photos/_photos_list.html.erb (3.2ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (16.2ms)
+  Rendered shared/_access.html.erb (2.0ms)
+  Rendered shared/_navbar.html.erb (6.7ms)
+  Rendered shared/_message.html.erb (0.8ms)
+Completed 200 OK in 124ms (Views: 116.1ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/rooms/3/photos" for 127.0.0.1 at 2019-02-02 04:07:47 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MJ9bLqM8Jt/SwYQAIPXhX/ThmECYcdfgUdkINXu4OSTVsZTJg6U/misYx+orraRcMlv/sU+cNN6aM83ZGfKe1Q==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x007fddd1b5b790 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-13y1lai.JPG>, @original_filename="DSCF1650.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"DSCF1650.JPG\"\r\nContent-Type: image/jpeg\r\n">], "commit"=>"Add Photos", "room_id"=>"3"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-13y1lai.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-fbs3cu.JPG
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8b9330aba832ca79f8161f70f44e06b420190202-12882-1u7m9uw'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8b9330aba832ca79f8161f70f44e06b420190202-12882-1u7m9uw to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c1e63d50f03d0b083f699b50923563b920190202-12882-1a290gq
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8b9330aba832ca79f8161f70f44e06b420190202-12882-1gruuk4'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/8b9330aba832ca79f8161f70f44e06b420190202-12882-1gruuk4 to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/d35eeb72a59aff2a754e596bd62878cc20190202-12882-a6zyxr
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-13evj2k.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/c3dde0baa04dba9c9bbc120978cef06020190202-12882-1mws32z.JPG
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 3], ["created_at", "2019-02-01 15:07:47.667764"], ["updated_at", "2019-02-01 15:07:47.667764"], ["image_file_name", "DSCF1650.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 594841], ["image_updated_at", "2019-02-01 15:07:47.149934"]]
+[paperclip] saving photos/images/35/original/DSCF1650.JPG
+[paperclip] saving photos/images/35/medium/DSCF1650.JPG
+[paperclip] saving photos/images/35/thumb/DSCF1650.JPG
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/rooms/3/photo_upload
+Completed 302 Found in 7089ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/rooms/3/photo_upload" for 127.0.0.1 at 2019-02-02 04:07:54 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (7.9ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered photos/_photos_list.html.erb (5.9ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (21.7ms)
+  Rendered shared/_access.html.erb (2.4ms)
+  Rendered shared/_navbar.html.erb (7.0ms)
+  Rendered shared/_message.html.erb (1.6ms)
+Completed 200 OK in 148ms (Views: 140.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/rooms/3/photos" for 127.0.0.1 at 2019-02-02 04:07:58 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"My897yoJ5Teigsy9DglUlfJ7k+ef6cKIuaX97+RNnJPWAfIICpD8cltbj1cFURGWNMH0FkgEIbZyTzgDhgc7Yg==", "commit"=>"Add Photos", "room_id"=>"3"}
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+No template found for PhotosController#create, rendering head :no_content
+Completed 204 No Content in 230ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/rooms/3/photo_upload" for 127.0.0.1 at 2019-02-02 04:08:08 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (5.6ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered photos/_photos_list.html.erb (3.8ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (14.9ms)
+  Rendered shared/_access.html.erb (1.5ms)
+  Rendered shared/_navbar.html.erb (5.8ms)
+  Rendered shared/_message.html.erb (1.0ms)
+Completed 200 OK in 126ms (Views: 119.4ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/rooms/3/photos" for 127.0.0.1 at 2019-02-02 04:08:14 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Z+O9d36bvjWx3bXy4PhRTtdV69y31/kHwycE645eqEOCzXKQXgKncEgE9hjroBRNEe+MLWA6GjkIzcEH7BQPsg==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x007fddce38c418 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-19tnggr.JPG>, @original_filename="DSCF1643.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"DSCF1643.JPG\"\r\nContent-Type: image/jpeg\r\n">], "commit"=>"Add Photos", "room_id"=>"3"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[35m (0.2ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-19tnggr.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1g3ty69.JPG
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/18904892f2efaa1b017477196b1f42ad20190202-12882-h2uwng'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/18904892f2efaa1b017477196b1f42ad20190202-12882-h2uwng to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/961ee3213720f10452fe89ed8548ad8120190202-12882-2y6ppx
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/18904892f2efaa1b017477196b1f42ad20190202-12882-pyer7m'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/18904892f2efaa1b017477196b1f42ad20190202-12882-pyer7m to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/419efdd5593c538bb50cf54e124e43dd20190202-12882-rf562p
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-1r7lrka.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/75ec4028c94e0448b70b48005ba54f2320190202-12882-yv5vkk.JPG
+  [1m[35mSQL (1.1ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 3], ["created_at", "2019-02-01 15:08:15.670457"], ["updated_at", "2019-02-01 15:08:15.670457"], ["image_file_name", "DSCF1643.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 1453611], ["image_updated_at", "2019-02-01 15:08:14.894340"]]
+[paperclip] saving photos/images/36/original/DSCF1643.JPG
+[paperclip] saving photos/images/36/medium/DSCF1643.JPG
+[paperclip] saving photos/images/36/thumb/DSCF1643.JPG
+  [1m[35m (4.4ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/rooms/3/photo_upload
+Completed 302 Found in 13079ms (ActiveRecord: 6.2ms)
+
+
+Started GET "/rooms/3/photo_upload" for 127.0.0.1 at 2019-02-02 04:08:27 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (6.0ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered photos/_photos_list.html.erb (7.2ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (19.3ms)
+  Rendered shared/_access.html.erb (2.3ms)
+  Rendered shared/_navbar.html.erb (7.0ms)
+  Rendered shared/_message.html.erb (1.1ms)
+Completed 200 OK in 148ms (Views: 140.3ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/rooms/3/listing" for 127.0.0.1 at 2019-02-02 04:08:44 +1300
+Processing by RoomsController#listing as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/listing.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (4.7ms)
+  Rendered rooms/listing.html.erb within layouts/application (9.9ms)
+  Rendered shared/_access.html.erb (1.7ms)
+  Rendered shared/_navbar.html.erb (5.8ms)
+  Rendered shared/_message.html.erb (0.9ms)
+Completed 200 OK in 107ms (Views: 99.6ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/rooms/3/location" for 127.0.0.1 at 2019-02-02 04:08:47 +1300
+Processing by RoomsController#location as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/location.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (4.1ms)
+  Rendered rooms/location.html.erb within layouts/application (7.9ms)
+  Rendered shared/_access.html.erb (1.7ms)
+  Rendered shared/_navbar.html.erb (6.3ms)
+  Rendered shared/_message.html.erb (0.9ms)
+Completed 200 OK in 143ms (Views: 104.7ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/rooms/3/photo_upload" for 127.0.0.1 at 2019-02-02 04:08:49 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered rooms/_room_menu.html.erb (5.7ms)
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  Rendered photos/_photos_list.html.erb (4.3ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (32.1ms)
+  Rendered shared/_access.html.erb (2.0ms)
+  Rendered shared/_navbar.html.erb (4.7ms)
+  Rendered shared/_message.html.erb (0.8ms)
+Completed 200 OK in 128ms (Views: 121.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/rooms/4/listing" for 127.0.0.1 at 2019-02-02 04:08:57 +1300
+Processing by RoomsController#listing as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/listing.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_room_menu.html.erb (4.4ms)
+  Rendered rooms/listing.html.erb within layouts/application (12.6ms)
+  Rendered shared/_access.html.erb (1.4ms)
+  Rendered shared/_navbar.html.erb (4.8ms)
+  Rendered shared/_message.html.erb (0.7ms)
+Completed 200 OK in 110ms (Views: 103.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/rooms/4/photo_upload" for 127.0.0.1 at 2019-02-02 04:08:59 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_room_menu.html.erb (4.9ms)
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered photos/_photos_list.html.erb (3.0ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (14.0ms)
+  Rendered shared/_access.html.erb (1.1ms)
+  Rendered shared/_navbar.html.erb (3.6ms)
+  Rendered shared/_message.html.erb (0.7ms)
+Completed 200 OK in 107ms (Views: 100.2ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/rooms/4/photos" for 127.0.0.1 at 2019-02-02 04:09:19 +1300
+Processing by PhotosController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"o65z7Wd73/t3W4oi1Kw3WQMqUS3eOrGx/MSbpaCM0ixGgLwKR+LGvo6Cycjf9HJaxZA23AnXUo83Ll5JwsZ13Q==", "images"=>[#<ActionDispatch::Http::UploadedFile:0x007fddcd6ef408 @tempfile=#<Tempfile:/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-osttfp.JPG>, @original_filename="yyy 013.JPG", @content_type="image/jpeg", @headers="Content-Disposition: form-data; name=\"images[]\"; filename=\"yyy 013.JPG\"\r\nContent-Type: image/jpeg\r\n">], "commit"=>"Add Photos", "room_id"=>"4"}
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/RackMultipart20190202-12882-osttfp.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/bf0a36efec577a628bb97139a7486fcc20190202-12882-1h9h5pz.JPG
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG[0]' -auto-orient -resize "300x300>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/509cd22a2e08cdfad50fbc5c2019888b20190202-12882-htbqiy'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/509cd22a2e08cdfad50fbc5c2019888b20190202-12882-htbqiy to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/660e868eed4b8c2ca07fde3476e53b9820190202-12882-8qk977
+Command :: identify -format '%wx%h,%[exif:orientation]' '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG[0]' 2>/dev/null
+Command :: identify -format %m '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG[0]'
+Command :: convert '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG[0]' -auto-orient -resize "100x100>" '/var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/509cd22a2e08cdfad50fbc5c2019888b20190202-12882-1pox0i2'
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/509cd22a2e08cdfad50fbc5c2019888b20190202-12882-1pox0i2 to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/43cfdb71718810c9d127436fcca3405820190202-12882-1prt49d
+[paperclip] Trying to link /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/caa58ccc83bbe8d0ead47c776adf7f0c20190202-12882-1qphzak.JPG to /var/folders/ws/qk04167561bcjchs6n5vhjdc0000gn/T/bf0a36efec577a628bb97139a7486fcc20190202-12882-vrv1qo.JPG
+  [1m[35mSQL (0.6ms)[0m  [1m[32mINSERT INTO "photos" ("room_id", "created_at", "updated_at", "image_file_name", "image_content_type", "image_file_size", "image_updated_at") VALUES (?, ?, ?, ?, ?, ?, ?)[0m  [["room_id", 4], ["created_at", "2019-02-01 15:09:21.126151"], ["updated_at", "2019-02-01 15:09:21.126151"], ["image_file_name", "yyy_013.JPG"], ["image_content_type", "image/jpeg"], ["image_file_size", 2014199], ["image_updated_at", "2019-02-01 15:09:19.462506"]]
+[paperclip] saving photos/images/37/original/yyy_013.JPG
+[paperclip] saving photos/images/37/medium/yyy_013.JPG
+[paperclip] saving photos/images/37/thumb/yyy_013.JPG
+  [1m[35m (1.8ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/rooms/4/photo_upload
+Completed 302 Found in 17649ms (ActiveRecord: 3.3ms)
+
+
+Started GET "/rooms/4/photo_upload" for 127.0.0.1 at 2019-02-02 04:09:37 +1300
+Processing by RoomsController#photo_upload as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendering rooms/photo_upload.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_room_menu.html.erb (7.3ms)
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered photos/_photos_list.html.erb (5.8ms)
+  Rendered rooms/photo_upload.html.erb within layouts/application (23.6ms)
+  Rendered shared/_access.html.erb (1.5ms)
+  Rendered shared/_navbar.html.erb (4.5ms)
+  Rendered shared/_message.html.erb (0.9ms)
+Completed 200 OK in 126ms (Views: 116.9ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/logout" for 127.0.0.1 at 2019-02-02 04:09:50 +1300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"gJN99/03UtoaWhVfY5VMn/mZOURAfalVRvJppvkACQdlvbIQ3a5Ln+ODVrVozQmcPyNetZeQSmuNGKxKm0qu9g=="}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 202ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-02 04:09:51 +1300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.4ms)
+  Rendered shared/_access.html.erb (6.7ms)
+  Rendered shared/_navbar.html.erb (9.4ms)
+  Rendered shared/_message.html.erb (1.4ms)
+Completed 200 OK in 115ms (Views: 112.5ms | ActiveRecord: 0.0ms)
+
+
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateReservations (20190202012613)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "reservations" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "user_id" integer, "room_id" integer, "start_date" datetime, "end_date" datetime, "price" integer, "total" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL, CONSTRAINT "fk_rails_48a92fce51"
+FOREIGN KEY ("user_id")
+  REFERENCES "users" ("id")
+, CONSTRAINT "fk_rails_78d1025283"
+FOREIGN KEY ("room_id")
+  REFERENCES "rooms" ("id")
+)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_user_id" ON "reservations" ("user_id")[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.2ms)[0m  [1m[35mCREATE  INDEX "index_reservations_on_room_id" ON "reservations" ("room_id")[0m
+  [1m[35mSQL (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20190202012613"]]
+  [1m[35m (1.7ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_photos_on_room_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_photos_on_room_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_room_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_room_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_reservations_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_rooms_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_rooms_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_confirmation_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.1ms)[0m  [1m[34m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+[0m
+Started GET "/rooms/1" for 127.0.0.1 at 2019-02-02 14:58:46 +1300
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (18.8ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.9ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mUser Load (24.9ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (2.5ms)
+  Rendered rooms/_google_map.html.erb (2.2ms)
+  [1m[36mRoom Load (0.8ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.8007259) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.280884) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude >= 175.280884) THEN  45.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude >= 175.280884) THEN 135.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude <  175.280884) THEN 225.0 WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude <  175.280884) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.890658060591875 AND -37.71079373940813 AND rooms.longitude BETWEEN 175.16706703624712 AND 175.39470096375285 AND rooms.id != 1) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  Rendered rooms/_near_by_rooms.html.erb (14.3ms)
+  Rendered reservations/_form.html.erb (48.3ms)
+  Rendered rooms/show.html.erb within layouts/application (834.1ms)
+Completed 500 Internal Server Error in 1118ms (ActiveRecord: 49.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `reservations' for #<Room:0x007ff6e9e07210>):
+    4:     <span class="pull-right">Per Night</span>
+    5:   </div>
+    6:   <div class="panel-body">
+    7:     <%= form_for([@room, @room.reservations.new]) do |f| %>
+    8:       <div class="row">
+    9:         <div class="col-md-6">
+   10:           <label>Check In</label>
+  
+app/views/reservations/_form.html.erb:7:in `_app_views_reservations__form_html_erb___739559427952137856_70349229432400'
+app/views/rooms/show.html.erb:108:in `_app_views_rooms_show_html_erb___2063859602694339607_70349231138800'
+Started GET "/rooms/1" for 127.0.0.1 at 2019-02-02 15:00:12 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.4ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (3.2ms)
+  Rendered rooms/_google_map.html.erb (1.4ms)
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.8007259) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.280884) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude >= 175.280884) THEN  45.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude >= 175.280884) THEN 135.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude <  175.280884) THEN 225.0 WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude <  175.280884) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.890658060591875 AND -37.71079373940813 AND rooms.longitude BETWEEN 175.16706703624712 AND 175.39470096375285 AND rooms.id != 1) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_near_by_rooms.html.erb (10.4ms)
+  Rendered reservations/_form.html.erb (107.4ms)
+  Rendered rooms/show.html.erb within layouts/application (223.8ms)
+  Rendered shared/_access.html.erb (7.6ms)
+  Rendered shared/_navbar.html.erb (35.9ms)
+  Rendered shared/_message.html.erb (0.8ms)
+Completed 200 OK in 3277ms (Views: 3033.0ms | ActiveRecord: 9.6ms)
+
+
+Started GET "/rooms/1/preload" for 127.0.0.1 at 2019-02-02 15:00:21 +1300
+  
+AbstractController::ActionNotFound (The action 'preload' could not be found for RoomsController):
+  
+actionpack (5.1.6.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/rooms/1" for 127.0.0.1 at 2019-02-02 15:16:21 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.5ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (2.1ms)
+  Rendered rooms/_google_map.html.erb (1.2ms)
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.8007259) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.280884) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude >= 175.280884) THEN  45.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude >= 175.280884) THEN 135.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude <  175.280884) THEN 225.0 WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude <  175.280884) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.890658060591875 AND -37.71079373940813 AND rooms.longitude BETWEEN 175.16706703624712 AND 175.39470096375285 AND rooms.id != 1) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_near_by_rooms.html.erb (7.2ms)
+  Rendered reservations/_form.html.erb (27.9ms)
+  Rendered rooms/show.html.erb within layouts/application (113.1ms)
+  Rendered shared/_access.html.erb (2.2ms)
+  Rendered shared/_navbar.html.erb (6.9ms)
+  Rendered shared/_message.html.erb (1.1ms)
+Completed 200 OK in 315ms (Views: 246.1ms | ActiveRecord: 7.9ms)
+
+
+Started GET "/rooms/1/preload" for 127.0.0.1 at 2019-02-02 15:16:22 +1300
+  
+AbstractController::ActionNotFound (The action 'preload' could not be found for RoomsController):
+  
+actionpack (5.1.6.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/login" for 127.0.0.1 at 2019-02-02 15:16:37 +1300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_devisemes.html.erb (1.0ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (135.6ms)
+  Rendered shared/_access.html.erb (2.1ms)
+  Rendered shared/_navbar.html.erb (6.4ms)
+  Rendered shared/_message.html.erb (1.3ms)
+Completed 200 OK in 337ms (Views: 298.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/login" for 127.0.0.1 at 2019-02-02 15:16:52 +1300
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"T67nkUvwmDRxiQiQONeQOtRMYphRmT/xEoE1nZkl8j7e1sZDaS8QiJ/ncIJz32szTUEAkmsoNfueP1w3ODgJeQ==", "user"=>{"email"=>"olucube@yahoo.co.uk", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log In"}
+  [1m[36mUser Load (42.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "olucube@yahoo.co.uk"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.6ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2019-02-02 02:16:53.199603"], ["last_sign_in_at", "2019-02-01 08:37:26.556132"], ["sign_in_count", 11], ["updated_at", "2019-02-02 02:16:53.201358"], ["id", 11]]
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 1454ms (ActiveRecord: 45.1ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-02 15:16:54 +1300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.6ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (5.4ms)
+  Rendered shared/_navbar.html.erb (10.0ms)
+  Rendered shared/_message.html.erb (1.1ms)
+Completed 200 OK in 153ms (Views: 127.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-02 15:16:58 +1300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (5.4ms)
+  Rendered shared/_navbar.html.erb (10.2ms)
+  Rendered shared/_message.html.erb (1.0ms)
+Completed 200 OK in 119ms (Views: 114.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2019-02-02 15:17:05 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (2.2ms)
+  Rendered rooms/_google_map.html.erb (1.1ms)
+  [1m[36mRoom Load (0.7ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.8007259) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.280884) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude >= 175.280884) THEN  45.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude >= 175.280884) THEN 135.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude <  175.280884) THEN 225.0 WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude <  175.280884) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.890658060591875 AND -37.71079373940813 AND rooms.longitude BETWEEN 175.16706703624712 AND 175.39470096375285 AND rooms.id != 1) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  Rendered rooms/_near_by_rooms.html.erb (10.6ms)
+  Rendered reservations/_form.html.erb (5.2ms)
+  Rendered rooms/show.html.erb within layouts/application (38.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (2.8ms)
+  Rendered shared/_navbar.html.erb (5.8ms)
+  Rendered shared/_message.html.erb (0.6ms)
+Completed 200 OK in 164ms (Views: 154.9ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/rooms/1/preload" for 127.0.0.1 at 2019-02-02 15:17:06 +1300
+  
+AbstractController::ActionNotFound (The action 'preload' could not be found for RoomsController):
+  
+actionpack (5.1.6.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started DELETE "/logout" for 127.0.0.1 at 2019-02-02 15:17:12 +1300
+Processing by Devise::SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"pBUsOvY80kTZ/to3VU0ZNe4iceEjhkNdqem+c5H1iU/SxJsxjzhRUKLi37/XXR4DaMJ5FPWiFbdtQfK5DYwutQ=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 80ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-02 15:17:12 +1300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  Rendered shared/_access.html.erb (1.2ms)
+  Rendered shared/_navbar.html.erb (3.8ms)
+  Rendered shared/_message.html.erb (0.6ms)
+Completed 200 OK in 84ms (Views: 81.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2019-02-02 15:17:20 +1300
+Processing by Devise::SessionsController#new as HTML
+  Rendering devise/sessions/new.html.erb within layouts/application
+  Rendered shared/_devisemes.html.erb (0.5ms)
+  Rendered devise/sessions/new.html.erb within layouts/application (4.7ms)
+  Rendered shared/_access.html.erb (1.0ms)
+  Rendered shared/_navbar.html.erb (4.1ms)
+  Rendered shared/_message.html.erb (0.7ms)
+Completed 200 OK in 99ms (Views: 96.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/auth/facebook" for 127.0.0.1 at 2019-02-02 15:17:22 +1300
+Started GET "/auth/facebook/callback?code=AQDN2ApjqPg37DZdgayrxDsx_aDfkxLcOneKcZlq4i_QLAJgNW8VWqO2miGkFkk9h214WPBK5pRzm3iBjQykEjLdYji2DykU4JUTmQpi3Phj7WWO2tAiH5W6JO4-rXODtbVSY7IvGWujdBpHXLM-qBAyE_ljNHp4u4v9a_8d45tmwmTmLH-QQEBZrq4VF0j6zAJx0zY3Soa5cZyz1PN1q4baA7m4VGLeMejFKhuh-M4zIZJt3eWrUOtKumLxNj_vMsn7rYeTj8KQYwLsbIPNImUbW8hGK9-IszlJwshTs1_hcfBAywD6RmeXMccwFQwBsL5IDYxaPZst7shkQNwbBc8L&state=566a34567e9571f63bf6650773213431130139924fdc2520" for 127.0.0.1 at 2019-02-02 15:17:26 +1300
+Processing by OmniauthCallbacksController#facebook as HTML
+  Parameters: {"code"=>"AQDN2ApjqPg37DZdgayrxDsx_aDfkxLcOneKcZlq4i_QLAJgNW8VWqO2miGkFkk9h214WPBK5pRzm3iBjQykEjLdYji2DykU4JUTmQpi3Phj7WWO2tAiH5W6JO4-rXODtbVSY7IvGWujdBpHXLM-qBAyE_ljNHp4u4v9a_8d45tmwmTmLH-QQEBZrq4VF0j6zAJx0zY3Soa5cZyz1PN1q4baA7m4VGLeMejFKhuh-M4zIZJt3eWrUOtKumLxNj_vMsn7rYeTj8KQYwLsbIPNImUbW8hGK9-IszlJwshTs1_hcfBAywD6RmeXMccwFQwBsL5IDYxaPZst7shkQNwbBc8L", "state"=>"566a34567e9571f63bf6650773213431130139924fdc2520"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["email", "olucube@hotmail.com"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[33mUPDATE "users" SET "current_sign_in_at" = ?, "last_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2019-02-02 02:17:27.776343"], ["last_sign_in_at", "2019-01-25 05:40:44.795509"], ["sign_in_count", 14], ["updated_at", "2019-02-02 02:17:27.777417"], ["id", 12]]
+  [1m[35m (1.6ms)[0m  [1m[36mcommit transaction[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 11ms (ActiveRecord: 3.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2019-02-02 15:17:27 +1300
+Processing by PagesController#home as HTML
+  Rendering pages/home.html.erb within layouts/application
+  Rendered pages/home.html.erb within layouts/application (0.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (3.2ms)
+  Rendered shared/_navbar.html.erb (5.9ms)
+  Rendered shared/_message.html.erb (0.7ms)
+Completed 200 OK in 92ms (Views: 88.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/rooms/1" for 127.0.0.1 at 2019-02-02 15:17:37 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (3.9ms)
+  Rendered rooms/_google_map.html.erb (1.1ms)
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.8007259) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.280884) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude >= 175.280884) THEN  45.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude >= 175.280884) THEN 135.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude <  175.280884) THEN 225.0 WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude <  175.280884) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.890658060591875 AND -37.71079373940813 AND rooms.longitude BETWEEN 175.16706703624712 AND 175.39470096375285 AND rooms.id != 1) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_near_by_rooms.html.erb (5.9ms)
+  Rendered reservations/_form.html.erb (4.1ms)
+  Rendered rooms/show.html.erb within layouts/application (33.2ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (3.3ms)
+  Rendered shared/_navbar.html.erb (7.0ms)
+  Rendered shared/_message.html.erb (0.6ms)
+Completed 200 OK in 131ms (Views: 124.5ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/rooms/1/preload" for 127.0.0.1 at 2019-02-02 15:17:38 +1300
+  
+AbstractController::ActionNotFound (The action 'preload' could not be found for RoomsController):
+  
+actionpack (5.1.6.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/rooms/1" for 127.0.0.1 at 2019-02-02 15:18:54 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (1.9ms)
+  Rendered rooms/_google_map.html.erb (1.0ms)
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.8007259) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.280884) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude >= 175.280884) THEN  45.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude >= 175.280884) THEN 135.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude <  175.280884) THEN 225.0 WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude <  175.280884) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.890658060591875 AND -37.71079373940813 AND rooms.longitude BETWEEN 175.16706703624712 AND 175.39470096375285 AND rooms.id != 1) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_near_by_rooms.html.erb (7.0ms)
+  Rendered reservations/_form.html.erb (4.3ms)
+  Rendered rooms/show.html.erb within layouts/application (60.1ms)
+Completed 500 Internal Server Error in 74ms (ActiveRecord: 1.8ms)
+
+
+  
+ActionView::Template::Error (undefined local variable or method `guest_reviews' for #<Room:0x007ff6eb2154c8>):
+    114:   $('#average_rating').raty({
+    115:     path: '/assets',
+    116:     readOnly: true,
+    117:     score: <%= @room.average_rating %>
+    118:   });
+    119: </script>
+  
+app/models/room.rb:27:in `average_rating'
+app/views/rooms/show.html.erb:117:in `_app_views_rooms_show_html_erb___2063859602694339607_70349241724580'
+Started GET "/rooms/1" for 127.0.0.1 at 2019-02-02 15:19:11 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mRoom Load (0.3ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.6ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (1.7ms)
+  Rendered rooms/_google_map.html.erb (1.7ms)
+  [1m[36mRoom Load (0.5ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.8007259) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.280884) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude >= 175.280884) THEN  45.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude >= 175.280884) THEN 135.0 WHEN (rooms.latitude <  -37.8007259 AND rooms.longitude <  175.280884) THEN 225.0 WHEN (rooms.latitude >= -37.8007259 AND rooms.longitude <  175.280884) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.890658060591875 AND -37.71079373940813 AND rooms.longitude BETWEEN 175.16706703624712 AND 175.39470096375285 AND rooms.id != 1) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_near_by_rooms.html.erb (6.3ms)
+  Rendered reservations/_form.html.erb (3.5ms)
+  Rendered rooms/show.html.erb within layouts/application (33.6ms)
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (5.2ms)
+  Rendered shared/_navbar.html.erb (9.6ms)
+  Rendered shared/_message.html.erb (0.9ms)
+Completed 200 OK in 144ms (Views: 136.4ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/rooms/1/preload" for 127.0.0.1 at 2019-02-02 15:19:11 +1300
+  
+AbstractController::ActionNotFound (The action 'preload' could not be found for RoomsController):
+  
+actionpack (5.1.6.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/rooms/2" for 127.0.0.1 at 2019-02-02 15:19:19 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_google_map.html.erb (0.7ms)
+  [1m[36mRoom Load (0.4ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.7930274) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.3003399) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.7930274 AND rooms.longitude >= 175.3003399) THEN  45.0 WHEN (rooms.latitude <  -37.7930274 AND rooms.longitude >= 175.3003399) THEN 135.0 WHEN (rooms.latitude <  -37.7930274 AND rooms.longitude <  175.3003399) THEN 225.0 WHEN (rooms.latitude >= -37.7930274 AND rooms.longitude <  175.3003399) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.88295956059187 AND -37.70309523940813 AND rooms.longitude BETWEEN 175.18653479670033 AND 175.4141450032997 AND rooms.id != 2) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  Rendered rooms/_near_by_rooms.html.erb (7.0ms)
+  Rendered reservations/_form.html.erb (4.6ms)
+  Rendered rooms/show.html.erb within layouts/application (28.5ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (4.6ms)
+  Rendered shared/_navbar.html.erb (8.7ms)
+  Rendered shared/_message.html.erb (1.2ms)
+Completed 200 OK in 130ms (Views: 122.4ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/rooms/2/preload" for 127.0.0.1 at 2019-02-02 15:19:19 +1300
+  
+AbstractController::ActionNotFound (The action 'preload' could not be found for RoomsController):
+  
+actionpack (5.1.6.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'
+Started GET "/rooms/3" for 127.0.0.1 at 2019-02-02 15:19:30 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (2.0ms)
+  Rendered rooms/_google_map.html.erb (1.1ms)
+  Rendered rooms/_near_by_rooms.html.erb (5.4ms)
+  Rendered rooms/show.html.erb within layouts/application (24.6ms)
+Completed 500 Internal Server Error in 41ms (ActiveRecord: 0.6ms)
+
+
+  
+ActionView::Template::Error (undefined method `max' for nil:NilClass):
+    1: <hr/>
+    2:   <div class="row">
+    3:       <h3>Near by</h3>
+    4:       <% for room in @room.nearbys(10).max(6).shuffle %>
+    5:           <div class="col-md-4">
+    6:             <div class="panel panel-default">
+    7:               <div class="panel-heading preview">
+  
+app/views/rooms/_near_by_rooms.html.erb:4:in `_app_views_rooms__near_by_rooms_html_erb__2880972286756044734_70349241678980'
+app/views/rooms/show.html.erb:101:in `_app_views_rooms_show_html_erb___2063859602694339607_70349227279840'
+Started GET "/rooms/3" for 127.0.0.1 at 2019-02-02 15:21:00 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.2ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 3]]
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (13.9ms)
+  Rendered rooms/_google_map.html.erb (1.3ms)
+  Rendered rooms/_near_by_rooms.html.erb (3.8ms)
+  Rendered rooms/show.html.erb within layouts/application (33.0ms)
+Completed 500 Internal Server Error in 48ms (ActiveRecord: 0.5ms)
+
+
+  
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+    2:   <div class="row">
+    3:       <h3>Near by</h3>
+    4:       <%# for room in @room.nearbys(10).max(6).shuffle %>
+    5:       <% for room in @room.nearbys(10) %>
+    6:           <div class="col-md-4">
+    7:             <div class="panel panel-default">
+    8:               <div class="panel-heading preview">
+  
+app/views/rooms/_near_by_rooms.html.erb:5:in `_app_views_rooms__near_by_rooms_html_erb__2880972286756044734_70349192836800'
+app/views/rooms/show.html.erb:101:in `_app_views_rooms_show_html_erb___2063859602694339607_70349264702020'
+Started GET "/rooms/4" for 127.0.0.1 at 2019-02-02 15:21:43 +1300
+Processing by RoomsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mRoom Load (0.2ms)[0m  [1m[34mSELECT  "rooms".* FROM "rooms" WHERE "rooms"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  Rendering rooms/show.html.erb within layouts/application
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 4]]
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  Rendered rooms/_photo_carousel.html.erb (1.5ms)
+  Rendered rooms/_google_map.html.erb (0.8ms)
+  [1m[36mRoom Load (0.6ms)[0m  [1m[34mSELECT rooms.*, (111.19492664455873 * ABS(rooms.latitude - -37.7960971) * 0.7071067811865475) + (96.29763124613503 * ABS(rooms.longitude - 175.2810429) * 0.7071067811865475) AS distance, CASE WHEN (rooms.latitude >= -37.7960971 AND rooms.longitude >= 175.2810429) THEN  45.0 WHEN (rooms.latitude <  -37.7960971 AND rooms.longitude >= 175.2810429) THEN 135.0 WHEN (rooms.latitude <  -37.7960971 AND rooms.longitude <  175.2810429) THEN 225.0 WHEN (rooms.latitude >= -37.7960971 AND rooms.longitude <  175.2810429) THEN 315.0 END AS bearing FROM "rooms" WHERE (rooms.latitude BETWEEN -37.88602926059187 AND -37.706164939408126 AND rooms.longitude BETWEEN 175.16723306800566 AND 175.39485273199432 AND rooms.id != 4) ORDER BY distance ASC[0m
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 1]]
+  [1m[36mPhoto Load (0.3ms)[0m  [1m[34mSELECT "photos".* FROM "photos" WHERE "photos"."room_id" = ?[0m  [["room_id", 2]]
+  Rendered rooms/_near_by_rooms.html.erb (8.6ms)
+  Rendered reservations/_form.html.erb (3.1ms)
+  Rendered rooms/show.html.erb within layouts/application (32.7ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = ? ORDER BY "users"."id" ASC LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  Rendered shared/_access.html.erb (4.2ms)
+  Rendered shared/_navbar.html.erb (9.0ms)
+  Rendered shared/_message.html.erb (0.7ms)
+Completed 200 OK in 135ms (Views: 128.6ms | ActiveRecord: 2.6ms)
+
+
+Started GET "/rooms/4/preload" for 127.0.0.1 at 2019-02-02 15:21:43 +1300
+  
+AbstractController::ActionNotFound (The action 'preload' could not be found for RoomsController):
+  
+actionpack (5.1.6.1) lib/abstract_controller/base.rb:119:in `process'
+actionview (5.1.6.1) lib/action_view/rendering.rb:30:in `process'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:189:in `dispatch'
+actionpack (5.1.6.1) lib/action_controller/metal.rb:253:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:49:in `dispatch'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:50:in `block in serve'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `each'
+actionpack (5.1.6.1) lib/action_dispatch/journey/router.rb:33:in `serve'
+actionpack (5.1.6.1) lib/action_dispatch/routing/route_set.rb:844:in `call'
+omniauth (1.9.0) lib/omniauth/strategy.rb:192:in `call!'
+omniauth (1.9.0) lib/omniauth/strategy.rb:169:in `call'
+warden (1.2.8) lib/warden/manager.rb:36:in `block in call'
+warden (1.2.8) lib/warden/manager.rb:34:in `catch'
+warden (1.2.8) lib/warden/manager.rb:34:in `call'
+rack (2.0.6) lib/rack/etag.rb:25:in `call'
+rack (2.0.6) lib/rack/conditional_get.rb:25:in `call'
+rack (2.0.6) lib/rack/head.rb:12:in `call'
+rack (2.0.6) lib/rack/session/abstract/id.rb:232:in `context'
+rack (2.0.6) lib/rack/session/abstract/id.rb:226:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/cookies.rb:613:in `call'
+activerecord (5.1.6.1) lib/active_record/migration.rb:556:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:26:in `block in call'
+activesupport (5.1.6.1) lib/active_support/callbacks.rb:97:in `run_callbacks'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/callbacks.rb:24:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/debug_exceptions.rb:59:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/show_exceptions.rb:31:in `call'
+railties (5.1.6.1) lib/rails/rack/logger.rb:36:in `call_app'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `block in call'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `block in tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:26:in `tagged'
+activesupport (5.1.6.1) lib/active_support/tagged_logging.rb:69:in `tagged'
+railties (5.1.6.1) lib/rails/rack/logger.rb:24:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/remote_ip.rb:79:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/request_id.rb:25:in `call'
+rack (2.0.6) lib/rack/method_override.rb:22:in `call'
+rack (2.0.6) lib/rack/runtime.rb:22:in `call'
+activesupport (5.1.6.1) lib/active_support/cache/strategy/local_cache_middleware.rb:27:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/executor.rb:12:in `call'
+actionpack (5.1.6.1) lib/action_dispatch/middleware/static.rb:125:in `call'
+rack (2.0.6) lib/rack/sendfile.rb:111:in `call'
+railties (5.1.6.1) lib/rails/engine.rb:522:in `call'
+puma (3.12.0) lib/puma/configuration.rb:225:in `call'
+puma (3.12.0) lib/puma/server.rb:658:in `handle_request'
+puma (3.12.0) lib/puma/server.rb:472:in `process_client'
+puma (3.12.0) lib/puma/server.rb:332:in `block in run'
+puma (3.12.0) lib/puma/thread_pool.rb:133:in `block in spawn_thread'

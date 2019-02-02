@@ -20,7 +20,6 @@ root 'pages#home'
              	 }
 
 resources :users, only: [:show]
-
 resources :rooms, except: [:edit] do
     member do
       get 'listing'
@@ -34,6 +33,7 @@ resources :rooms, except: [:edit] do
     end
 
     resources :photos, only: [:create, :destroy]
+    resources :reservations, only: [:create]
   end
 
 end
