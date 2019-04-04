@@ -10,8 +10,8 @@
               </div>
               <div class="panel-body">
                 <%= link_to room.listing_name, room %><br/>
-                <%= room.address %>
-                (<%= pluralize(room.distance.round(2), "km") %> away)
+                <%= room.address %><br>
+                <%= pluralize(room.distance.round(2), "km") %> away
               </div>
             </div>
           </div>

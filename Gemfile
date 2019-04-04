@@ -10,7 +10,7 @@ end
 gem 'rails', '~> 5.1.4'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.4'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -87,3 +87,5 @@ gem 'paperclip', '~> 6.1'
 gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
+
+gem 'jquery-ui-rails', '~> 5.0'

@@ -90,7 +90,7 @@
               success: function(data) {
 
                 if(data.conflict) {
-                  $('#message').text("These dates are not available.");
+                  $('#message').text("These dates are not available for this room.");
                   $('#preview').hide();
                   $('#btn_book').attr('disabled', true);
                 } else {
@@ -131,7 +131,7 @@
               success: function(data) {
 
                 if(data.conflict) {
-                  $('#message').text("These dates are not available.");
+                  $('#message').text("These dates are not available for this room.");
                   $('#preview').hide();
                   $('#btn_book').attr('disabled', true);
                 } else {
@@ -154,4 +154,3 @@
 
   });
 </script>
-

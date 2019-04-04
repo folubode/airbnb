@@ -22,11 +22,23 @@ class RoomsController < ApplicationController
     end
   end
 
-    def show
-     @photos = @room.photos
-     #@guest_reviews = @room.guest_reviews
+
+  def show
+     @photos = @room.photos   #@guest_reviews = @room.guest_reviews
    end
 
+
+  def update
+    new_params = room_params
+    new_params = room_params.merge(active: true) if is_ready_room
+
+    if @room.update(new_params)
+      flash[:notice] = "Saved..."
+    else
+      flash[:alert] = "Something went wrong..."
+    end
+    redirect_back(fallback_location: request.referer)
+  end
 
   def listing
   end
@@ -48,11 +60,9 @@ class RoomsController < ApplicationController
   end
 
   def update
-
     #double checking in the server side
     new_params = room_params
     new_params = room_params.merge(active: true) if is_ready_room
-    #
 
     if @room.update(new_params)
       flash[:notice] = "Saved..."
@@ -61,6 +71,26 @@ class RoomsController < ApplicationController
     end
     redirect_back(fallback_location: request.referer)
   end
+
+
+  def preload
+    today = Date.today
+    reservations = @room.reservations.where("start_date >= ? OR end_date >= ?", today, today)
+
+    render json: reservations
+  end
+
+  def preview
+    start_date = Date.parse(params[:start_date])
+    end_date = Date.parse(params[:end_date])
+
+    output = {
+      conflict: is_conflict(start_date, end_date, @room)
+    }
+
+    render json: output
+  end
+
 
 
   private
