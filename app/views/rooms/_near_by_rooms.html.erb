@@ -1,3 +1,4 @@
+<% !if @room.nearbys(10).nil? %>
 <hr/>
   <div class="row">
       <h3>Near by</h3>
@@ -11,10 +12,11 @@
               <div class="panel-body">
                 <%= link_to room.listing_name, room %><br/>
                 <%= room.address %><br>
-                <%= pluralize(room.distance.round(2), "km") %> away
+                <%= pluralize(room.distance.round(2), "kilometer") %> away
               </div>
             </div>
           </div>
       <% end %>
     </div>
   <hr/>
+<% end %>

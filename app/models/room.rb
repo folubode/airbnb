@@ -3,6 +3,8 @@ class Room < ApplicationRecord
   has_many :photos
   has_many :reservations
 
+  has_many :guest_reviews
+
 
   geocoded_by :address
   after_validation :geocode, if: :address_changed?
@@ -12,7 +14,8 @@ class Room < ApplicationRecord
   validates :accommodate, presence: true
   validates :bed_room, presence: true
   validates :bath_room, presence: true
-
+  validates :price, presence: true, length: {minimum: 1, maximum: 5}
+  validates :price, numericality: {greater_than_or_equal_to: 1}
 
   def cover_photo(size)
     if self.photos.length > 0
@@ -23,7 +26,9 @@ class Room < ApplicationRecord
     end
   end
 
+  #helper method to return average rating 
   def average_rating
+    # return zero if no rating otherwise return average
     guest_reviews.count == 0 ? 0 : guest_reviews.average(:star).round(2).to_i
   end
 

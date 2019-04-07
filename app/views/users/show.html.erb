@@ -10,12 +10,12 @@
       <div class="panel-body">
 
         <ul class="sidebar-list">
-          <% if @user.confirmation_token %>
+          <% if @user.confirmation_token %> <!-- if signed up with email-->
             <li>Email Address<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
           <% end %>
-          <% if @user.provider %>
+          <% if @user.provider %> <!-- if signed up with provider-->
             <li>Facebook<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
-          <% end %>
+          <% end %> <!-- if signed up with sms verification-->
           <li>Phone Number<span class="pull-right icon-babu"><i class="fa fa-check-circle-o"></i></span></li>
         </ul>
         
@@ -29,6 +29,24 @@
     <div class="description row-space-3">
       <%= @user.description %>
     </div>
+    <h4> <%= pluralize(@rooms.length, "listing") %></h4><br/>
+
+    <div class="row">
+      <%= render partial: "rooms/rooms_list", locals: {rooms: @rooms} %>
+    </div>
+    <br/>
+
+    <h4><%= pluralize(@guest_reviews.length, "Review") %> from guest(s)</h4>
+    <div class="row">
+      <%= render "reviews/guest_list" %>
+    </div><hr>
+    <br/>
+
+    <h4><%= pluralize(@host_reviews.length, "Review") %> from host(s)</h4>
+    <div class="row">
+      <%= render "reviews/host_list" %>
+    </div>
+
 
   </div>
 </div>

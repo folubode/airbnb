@@ -24,8 +24,9 @@ class RoomsController < ApplicationController
 
 
   def show
-     @photos = @room.photos   #@guest_reviews = @room.guest_reviews
-   end
+     @photos = @room.photos
+     @guest_reviews = @room.guest_reviews
+  end
 
 
   def update
@@ -90,7 +91,6 @@ class RoomsController < ApplicationController
 
     render json: output
   end
-
 
 
   private

@@ -89,3 +89,6 @@ gem 'aws-sdk', '~> 3.0', '>= 3.0.1'
 gem 'geocoder', '~> 1.5', '>= 1.5.1'
 
 gem 'jquery-ui-rails', '~> 5.0'
+
+#for search funtion
+gem 'ransack', '~> 1.7'

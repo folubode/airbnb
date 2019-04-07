@@ -87,18 +87,20 @@
 
     </div>
 
-
 <!-- Carousel -->
 <% if @photos.length > 1 %>
   <%= render 'photo_carousel' %>
 <% end %>
 
+<!-- Revies -->
+<%= render 'reviews' %>
 
- <!-- GOOGLE MAP -->
-  <%= render 'google_map' %>
 
-  <!-- NEAR BY ROOMS -->
-   <%= render 'near_by_rooms' %> 
+<!-- GOOGLE MAP -->
+<%= render 'google_map' %>
+
+<!-- NEAR BY ROOMS -->
+<%= render 'near_by_rooms' %> 
 
 </div>
 
@@ -107,5 +109,13 @@
     <!-- Reservation Form -->
     <%= render 'reservations/form' %>
   </div>
+
 </div>
 
+<script>
+  $('#average_rating').raty({
+    path: '/assets',
+    readOnly: true,
+    score: <%= @room.average_rating %>
+  });
+</script>

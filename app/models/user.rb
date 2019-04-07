@@ -1,9 +1,4 @@
 class User < ApplicationRecord
-  
-  has_many :rooms
-  has_many :reservations
-
-
 	# Include default devise modules and remember to add field to user table:
   devise :database_authenticatable, :registerable, :confirmable,
          :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
@@ -11,6 +6,11 @@ class User < ApplicationRecord
   
   validates :fullname, presence: true, length: {minimum: 3, maximum: 50}
 
+  has_many :rooms
+  has_many :reservations
+
+  has_many :guest_reviews, class_name: "GuestReview", foreign_key: "guest_id"
+  has_many :host_reviews, class_name: "HostReview", foreign_key: "host_id"
 
 
 # def self.find_for_facebook_oauth2(access_token, signed_in_resource=nil)
