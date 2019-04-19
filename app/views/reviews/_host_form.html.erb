@@ -1,7 +1,9 @@
 <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-normal" data-toggle="modal" data-target="#myModal_<%= reservation.id %>">
-  Review guest
-</button>
+<%# if trip.Approved? && trip.end_date < Date.today %>
+  <button type="button" class="btn btn-normal" data-toggle="modal" data-target="#myModal_<%= reservation.id %>">
+    Review guest
+  </button>
+<%# end %>
 
 <!-- Modal -->
 <div id="myModal_<%= reservation.id %>" class="modal fade" role="dialog">

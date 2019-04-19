@@ -17,7 +17,7 @@ class RoomsController < ApplicationController
     if @room.save
       redirect_to listing_room_path(@room), notice: "Saved..."
     else
-      flash[:alert] = "Oops, something went wrong..."
+      flash[:alert] = "Oops, something went wrong...!!!!"
       render :new
     end
   end
@@ -73,6 +73,21 @@ class RoomsController < ApplicationController
     redirect_back(fallback_location: request.referer)
   end
 
+  # --- Reservations ---
+  # def preload
+  #   today = Date.today
+  #   reservations = @room.reservations.where("(start_date >= ? OR end_date >= ?) AND status = ?", today, today, 1)
+  #   unavailable_dates = @room.calendars.where("status = ? AND day > ?", 1, today)
+
+  #   special_dates = @room.calendars.where("status = ? AND day > ? AND price <> ?",0, today, @room.price)
+    
+  #   #render json: reservations
+  #    render json: {
+  #        reservations: reservations,
+  #        unavailable_dates: unavailable_dates,
+  #        special_dates: special_dates
+  #    }
+  # end
 
   def preload
     today = Date.today
@@ -80,6 +95,8 @@ class RoomsController < ApplicationController
 
     render json: reservations
   end
+
+
 
   def preview
     start_date = Date.parse(params[:start_date])
@@ -94,6 +111,13 @@ class RoomsController < ApplicationController
 
 
   private
+    # def is_conflict(start_date, end_date, room)
+    #   check = room.reservations.where("(? < start_date AND end_date < ?) AND status = ?", start_date, end_date, 1)
+    #   check_2 = room.calendars.where("day BETWEEN ? AND ? AND status = ?", start_date, end_date, 1).limit(1)
+
+    #   check.size > 0 || check_2.size > 0 ? true : false
+    # end
+    
     def is_conflict(start_date, end_date, room)
       check = room.reservations.where("? < start_date AND end_date < ?", start_date, end_date)
       check.size > 0? true : false
@@ -112,7 +136,7 @@ class RoomsController < ApplicationController
     end
 
     def room_params
-      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active)
+      params.require(:room).permit(:home_type, :room_type, :accommodate, :bed_room, :bath_room, :listing_name, :summary, :address, :is_tv, :is_kitchen, :is_air, :is_heating, :is_internet, :price, :active, :instant)
     end
 
 end

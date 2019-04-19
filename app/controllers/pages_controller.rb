@@ -33,13 +33,20 @@ class PagesController < ApplicationController
 
       @rooms.each do |room| #display results
 
-        not_available = room.reservations.where(
-          "(? <= start_date AND start_date <= ?)
+         not_available = room.reservations.where(
+          "((? <= start_date AND start_date <= ?)
           OR (? <= end_date AND end_date <= ?)
-          OR (start_date < ? AND ? < end_date)",
+          OR (start_date < ? AND ? < end_date))
+          AND status = ?",
           start_date, end_date,
           start_date, end_date,
-          start_date, end_date
+          start_date, end_date,
+          1
+        ).limit(1)
+
+        not_available_in_calendar = Calendar.where(
+          "room_id = ? AND status = ? AND day <= ? AND day >= ?",
+          room.id, 1, end_date, start_date
         ).limit(1)
 
         if not_available.length > 0

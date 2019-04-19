@@ -11,10 +11,19 @@
 #   stripe_publishable_key: pk_live_9lcthxpSIHbGwmdO941O1XVU
 
 
+# Twilio
+  ACCOUNT_SID: ACb9fe11cdfcd5709cd60702f6b8b85fdd
+  AUTH_TOKEN: afdad896548636befdcb10428947660c
+#secret_key_base: THERE WILL ALREADY BE SOME CRAZY STRING HERE. LEAVE IT THERE.
+
+twilio_account_sid:  ACb9fe11cdfcd5709cd60702f6b8b85fdd
+twilio_auth_token:  afdad896548636befdcb10428947660c
+twilio_phone_number:  +18326262216'
+
 
 #gmail
 gmail_address: folubode@gmail.com
-gmail_password: 920214yt
+gmail_password: 
 
 
 #facebookdeveloper

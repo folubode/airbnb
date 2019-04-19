@@ -92,3 +92,20 @@ gem 'jquery-ui-rails', '~> 5.0'
 
 #for search funtion
 gem 'ransack', '~> 1.7'
+
+# Use sqlite3 as the database for Active Record
+gem 'sqlite3', '~> 1.4'
+
+
+#----  AirKONG  -------
+#gem 'twilio-ruby', '~> 4.11.1'
+gem 'twilio-ruby', '~> 5.22.1'
+gem 'fullcalendar-rails', '~> 3.4.0'
+gem 'momentjs-rails', '~> 2.17.1'
+
+gem 'stripe', '~> 3.0.0'
+gem 'rails-assets-card', source: 'https://rails-assets.org'
+
+gem 'omniauth-stripe-connect', '~> 2.10.0'
+
+gem 'chartkick', '~> 2.2.4'

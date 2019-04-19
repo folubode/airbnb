@@ -1,0 +1,6 @@
+km:
+  room:
+    distance:
+      zero: 0 km
+      one: 1 km
+      other: "%{distance} kms"

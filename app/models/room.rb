@@ -1,4 +1,6 @@
 class Room < ApplicationRecord
+  enum instant: {Request: 0, Instant: 1}
+
   belongs_to :user
   has_many :photos
   has_many :reservations
@@ -14,8 +16,8 @@ class Room < ApplicationRecord
   validates :accommodate, presence: true
   validates :bed_room, presence: true
   validates :bath_room, presence: true
-  validates :price, presence: true, length: {minimum: 1, maximum: 5}
-  validates :price, numericality: {greater_than_or_equal_to: 1}
+  #validates :price, presence: true, length: {minimum: 1, maximum: 5}
+  #validates :price, numericality: {greater_than_or_equal_to: 1}
 
   def cover_photo(size)
     if self.photos.length > 0

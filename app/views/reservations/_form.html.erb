@@ -1,6 +1,6 @@
 <div class="panel panel-default">
   <div class="panel-heading">
-    <span><i class="fa fa-bolt" style="color: #ffb400"></i> $<%= @room.price %></span>
+    <span><% if @room.Instant? %><i class="fa fa-bolt" style="color: #ffb400"></i> <% end %> $<%= @room.price %></span>
     <span class="pull-right">Per Night</span>
   </div>
   <div class="panel-body">
@@ -28,6 +28,12 @@
               <td>Night(s)</td>
               <td class="text-right">x <span id="reservation_nights"></span></td>
             </tr>
+            <tr id="special_details">
+              <td colspan="2" class="total">
+                Specials Price<br/>
+                <ul id="special_list"></ul>
+              </td>
+            </tr>
             <tr>
               <td class="total">Total</td>
               <td class="text-right">$<span id="reservation_total"></span></td>
@@ -38,7 +44,11 @@
 
       <br/>
 
-      <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+      <% if @room.Instant? %>
+          <%= f.submit "Book Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+      <% else %>
+          <%= f.submit "Request Now", id: "btn_book", class: "btn btn-normal btn-block", disabled: true %>
+      <% end %>
     <% end %>
   </div>
 </div>

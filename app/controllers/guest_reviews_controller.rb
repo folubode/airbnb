@@ -21,7 +21,7 @@ class GuestReviewsController < ApplicationController
           flash[:success] = "Review complete..."
       else
           # Already reviewed
-          flash[:success] = "You already reviewed this reservation"
+          flash[:failure] = "You already reviewed this reservation"
       end
     else
       flash[:alert] = "Not found this reservation"
