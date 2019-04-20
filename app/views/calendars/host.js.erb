@@ -1,0 +1,10 @@
+reservations = <%= raw @events.to_json %>
+
+$('#form_modal').html("");
+$('#form_modal').append("<%= j render(:partial => 'form', locals: {room: @room}) %>");
+
+$('#calendar').fullCalendar('getView').renderDates();
+
+$('#calendar').fullCalendar('removeEvents');
+$('#calendar').fullCalendar('addEventSource', showReservations(reservations));
+$('#calendar').fullCalendar('rerenderEvents');

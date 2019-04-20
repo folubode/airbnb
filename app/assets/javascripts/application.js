@@ -12,9 +12,16 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
-//= require rails-ujs
+//= require jquery_ujs
 //= require jquery-ui/datepicker
 //= require jquery-ui/slider
 //= require toastr
+//= require moment
+//= require fullcalendar
 //= require garlic
+//= require card
+//= require bootstrap-datepicker
+//= require Chart.bundle
+//= require chartkick
+//= require cable
 //= require_tree .

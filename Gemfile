@@ -16,6 +16,7 @@ gem 'sqlite3', '~> 1.4'
 gem 'puma', '~> 3.7'
 
 gem 'bootstrap-sass', '~> 3.3.6'
+
 gem 'jquery-rails'
 
 # Use SCSS for stylesheets
@@ -97,15 +98,24 @@ gem 'ransack', '~> 1.7'
 gem 'sqlite3', '~> 1.4'
 
 
+#----  Debugging  -------
+group :development, :test do
+  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
+  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
+end
+
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+\
 #----  AirKONG  -------
-#gem 'twilio-ruby', '~> 4.11.1'
 gem 'twilio-ruby', '~> 5.22.1'
 gem 'fullcalendar-rails', '~> 3.4.0'
 gem 'momentjs-rails', '~> 2.17.1'
-
+gem 'bootstrap-datepicker-rails', :require => 'bootstrap-datepicker-rails',
+                              :git => 'git://github.com/Nerian/bootstrap-datepicker-rails.git'
 gem 'stripe', '~> 3.0.0'
 gem 'rails-assets-card', source: 'https://rails-assets.org'
-
 gem 'omniauth-stripe-connect', '~> 2.10.0'
-
 gem 'chartkick', '~> 2.2.4'
