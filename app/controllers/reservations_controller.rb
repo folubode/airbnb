@@ -23,8 +23,8 @@ class ReservationsController < ApplicationController
       @reservation = current_user.reservations.build(reservation_params)
       @reservation.room = room
       @reservation.price = room.price
-      # @reservation.total = room.price * days
-      # @reservation.save
+      @reservation.total = room.price * days
+      @reservation.save
 
       @reservation.total = room.price * (days - special_dates.count)
       special_dates.each do |date|

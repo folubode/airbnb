@@ -1,4 +1,5 @@
 reservations = <%= raw @events.to_json %>
+//days = <%= raw @days.to_json %>
 
 $('#form_modal').html("");
 $('#form_modal').append("<%= j render(:partial => 'form', locals: {room: @room}) %>");

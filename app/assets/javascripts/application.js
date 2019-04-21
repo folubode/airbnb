@@ -20,7 +20,6 @@
 //= require fullcalendar
 //= require garlic
 //= require card
-//= require bootstrap-datepicker
 //= require Chart.bundle
 //= require chartkick
 //= require cable
