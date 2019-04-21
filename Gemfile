@@ -94,6 +94,7 @@ gem 'jquery-ui-rails', '~> 5.0'
 #for search funtion
 gem 'ransack', '~> 1.7'
 
+gem 'figaro', '~> 1.1', '>= 1.1.1'
 
 #----  Debugging  -------
 group :development, :test do
