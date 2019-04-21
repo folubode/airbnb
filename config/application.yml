@@ -7,12 +7,12 @@
 # stripe_publishable_key: pk_test_ro9jV5SNwGb1yYlQfzG17LHK
 #
 # production:
-   stripe_api_key: sk_test_CKXLWaoOWinXlTKIaW7rr7sN
-   stripe_publishable_key: pk_test_KSffSEmpPWCDCnyp0MTksrXG
+   stripe_api_key: sk_test_bKqUv2fjFwKmq7m5QeL3RI3800ybVTH4Ey
+   stripe_publishable_key: pk_test_Z5MdSyNl2YZJvnIeRvrSEL8x00qXGNoDwq
 
 
-  :publishable_key => 'YOUR_STRIPE_PUBLISHABLE_KEY',
-  :secret_key => 'YOUR_STRIPE_SECRET_KEY'
+#  :publishable_key => 'YOUR_STRIPE_PUBLISHABLE_KEY',
+#  :secret_key => 'YOUR_STRIPE_SECRET_KEY'
 
 # Twilio
   ACCOUNT_SID: ACb9fe11cdfcd5709cd60702f6b8b85fdd

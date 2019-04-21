@@ -83,8 +83,8 @@ class ReservationsController < ApplicationController
           :description => room.listing_name,
           :currency => "usd",
           :destination => {
-            :amount => reservation.total * 80, # 80% of the total amount goes to the Host
-            :account => room.user.merchant_id # Host's Stripe customer ID
+#            :amount => reservation.total * 80, # 80% of the total amount goes to the Host
+#            :account => room.user.merchant_id # Host's Stripe customer ID
           }
         )
 
