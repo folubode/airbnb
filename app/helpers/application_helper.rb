@@ -10,7 +10,7 @@ module ApplicationHelper
 	end
 
 		def stripe_express_path
-    	"https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_EvUbvzQs6zSdkZIHW1JMms5vVWMbKDWP&scope=read_write"
+    	"https://connect.stripe.com/express/oauth/authorize?response_type=code&client_id=ca_EvsbeQklFXim1fduiw9LplCmyaWmhCId&scope=read_write"
   	end
 
 

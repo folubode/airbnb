@@ -30,9 +30,9 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     auth_data = request.env["omniauth.auth"]
     @user = current_user
 
-    if @user.persisted?
-      @user.merchant_id = auth_data.uid
-      @user.save
+    if  @user.persisted?
+        @user.merchant_id = auth_data.uid
+        @user.save
 
       if !@user.merchant_id.blank?
 
@@ -41,6 +41,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
         account.payout_schedule.delay_days = 7
         account.payout_schedule.interval = "daily"
 
+        #for monthly payment
         # account.payout_schedule.monthly_anchor = 15
         # account.payout_schedule.interval = "monthly"
 

@@ -1,7 +1,7 @@
 class User < ApplicationRecord
 	# Include default devise modules and remember to add field to user table:
   devise :database_authenticatable, :registerable, :confirmable,
-         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook]
+         :recoverable, :rememberable, :trackable, :validatable, :omniauthable, :omniauth_providers => [:facebook, :stripe_connect]
 				 #Others available are: :lockable, :timeoutable
   
   validates :fullname, presence: true, length: {minimum: 3, maximum: 50}
