@@ -10,7 +10,8 @@ end
 gem 'rails', '~> 5.1.4'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', '~> 1.4'
+#gem 'sqlite3', '~> 1.4'
+gem 'sqlite3', '~> 1.3.12'
 
 # Use Puma as the app server
 gem 'puma', '~> 3.7'
@@ -94,13 +95,6 @@ gem 'jquery-ui-rails', '~> 5.0'
 #for search funtion
 gem 'ransack', '~> 1.7'
 
-gem 'figaro', '~> 1.1', '>= 1.1.1'
-
-#----  Debugging  -------
-group :development, :test do
-  # Call 'byebug' anywhere in the code to stop execution and get a debugger console
-  gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
-end
 
 #group :development do
 #  gem "better_errors"
@@ -113,6 +107,6 @@ gem 'fullcalendar-rails', '~> 3.4.0'
 gem 'momentjs-rails', '~> 2.17.1'
 
 gem 'stripe', '~> 3.0.0'
-gem 'rails-assets-card', source: 'https://rails-assets.org'
+gem 'rails-assets-card', source: 'http://insecure.rails-assets.org' #'https://rails-assets.org'
 gem 'omniauth-stripe-connect', '~> 2.10.0'
 gem 'chartkick', '~> 2.2.4'

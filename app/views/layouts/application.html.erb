@@ -7,10 +7,10 @@
 
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDALuUNP5MqzSS5uZuBTxIVpFjFTLLYU9k&libraries=places"></script>
     <link href="https://fonts.googleapis.com/css?family=Varela+Round" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://code.jquery.com/ui/1.12.1/themes/hot-sneaks/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
   </head>
 
   <body>
@@ -24,7 +24,22 @@
    <!-- pages container -->
     <div class="container">
       <%= yield %>
+
+
     </div>
+
+
+<script> 
+  // do display copyright
+  yr = new Date().getFullYear();
+  if (yr!=2010)
+  document.write("– "+yr);
+
+// To avoid TypeError: $(…).modal is not a function with bootstrap Modal
+  jQuery.noConflict();
+
+</script>&nbsp;olucube.com</span> 
+
 
   </body>
 </html>

@@ -18,6 +18,7 @@
 //= require toastr
 //= require moment
 //= require fullcalendar
+//= require fullcalendar/locale-all
 //= require garlic
 //= require card
 //= require Chart.bundle
